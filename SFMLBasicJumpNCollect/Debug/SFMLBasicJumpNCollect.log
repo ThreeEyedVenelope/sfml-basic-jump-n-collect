@@ -1,0 +1,12 @@
+﻿  Source.cpp
+C:\Users\BatGirl\Documents\Code\C++\sfml-basic-jump-n-collect\SFMLBasicJumpNCollect\Source.cpp(5,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\BatGirl\Documents\Code\C++\sfml-basic-jump-n-collect\SFMLBasicJumpNCollect\Source.cpp(5,28): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  SFMLBasicJumpNCollect.vcxproj -> C:\Users\BatGirl\Documents\Code\C++\sfml-basic-jump-n-collect\SFMLBasicJumpNCollect\Debug\SFMLBasicJumpNCollect.exe
