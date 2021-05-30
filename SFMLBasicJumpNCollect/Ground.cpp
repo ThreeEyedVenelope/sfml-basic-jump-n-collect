@@ -10,3 +10,7 @@ Ground::Ground(sf::Vector2f windowSize) {
 sf::Sprite Ground::getSprite() {
 	return m_sprite;
 }
+
+sf::Texture Ground::getTexture() {
+	return m_texture;
+}
