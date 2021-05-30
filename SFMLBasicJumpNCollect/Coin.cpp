@@ -11,3 +11,7 @@ Coin::Coin(sf::Vector2f position) {
 sf::Sprite Coin::getSprite() {
 	return m_sprite;
 }
+
+void Coin::position(sf::Vector2f position) {
+	m_sprite.setPosition(position);
+}

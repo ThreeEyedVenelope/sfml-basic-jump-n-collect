@@ -148,12 +148,14 @@
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ScoreText.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coin.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ScoreText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

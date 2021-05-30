@@ -7,6 +7,8 @@ public:
 
 	sf::Sprite getSprite();
 
+	void position(sf::Vector2f position);
+
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite; 

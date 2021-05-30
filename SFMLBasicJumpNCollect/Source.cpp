@@ -3,6 +3,7 @@
 #include "Ground.h"
 #include "Player.h"
 #include "Coin.h"
+#include "ScoreText.h"
 
 sf::Vector2f windowSize(800, 800);
 sf::VideoMode vm(windowSize.x, windowSize.y);
@@ -16,7 +17,12 @@ Player player(ground);
 
 std::vector<Coin*> coins;
 Coin coin1({ 120,525 });
-Coin coin2({ 600,475 });
+Coin coin2({ 475,500 });
+Coin coin3({ 620, 475 });
+
+ScoreText scoreText({ 20,10 });
+int score = 0;
+std::string scoreString = "Score: " + std::to_string(score);
 
 float groundHeight = ground.getSprite().getPosition().y - ground.getTexture().getSize().y / 2;
 float gravity = 400.0f;
@@ -34,6 +40,7 @@ void setBackground() {
 void setCoins() {
     coins.push_back(&coin1);
     coins.push_back(&coin2);
+    coins.push_back(&coin3);
 }
 
 void checkKeyPress() {
@@ -73,10 +80,30 @@ void checkKeyPress() {
 
 }
 
+void checkCoinCollision() {
+    for (int i = 0; i < coins.size(); i++) {
+        if (player.collidingWithCoin(coins[i])) {
+            coins[i]->position({ 900,900 });
+            score++;
+            scoreString = "Score: " + std::to_string(score);
+            std::cout << "Score: " + std::to_string(score);
+            scoreText.setText(scoreString);
+        }
+    }
+
+}
+
+void drawCoins() {
+    for (int i = 0; i < coins.size(); i++) {
+        window.draw(coins[i]->getSprite());
+    }
+}
+
 int main()
 {
     setBackground();
     setCoins();
+    scoreText.setText(scoreString);
     sf::Clock clock;
 
     while (window.isOpen()) {
@@ -99,15 +126,17 @@ int main()
             jumpCount = 0; // reset jump count when the player touches down on the floor 
         }
 
+        checkCoinCollision();
+
         sf::Time t = clock.restart();
         player.update(t, windowSize, groundHeight, gravity);
 
         window.clear();
         window.draw(backgroundSprite);
         window.draw(ground.getSprite());
-        window.draw(coin1.getSprite());
-        window.draw(coin2.getSprite());
+        drawCoins();
         window.draw(player.getSprite());
+        window.draw(scoreText.getText());
         window.display();
     }
     return 0;
